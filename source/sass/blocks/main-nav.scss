@@ -1,27 +1,107 @@
 .main-nav {
+  position: fixed;
+  inset: 0;
+  padding-top: var(--header-height);
+  background-color: $color-accent-second;
+  transform: translateY(-100%);
+
+  a {
+    font: inherit;
+    color: inherit;
+  }
+
+  .is-open & {
+    display: block;
+  }
+
   &__list {
-    display: flex;
+    list-style: none;
     margin: 0;
-    margin-right: 20px;
-    margin-left: 60px;
     padding: 0;
 
-    list-style: none;
+    font-weight: 500;
+    font-size: 24px;
   }
 
   &__item {
-    margin-right: 20px;
+    color: $color-default-white;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 
   &__link {
-    color: $color-default-white;
+    display: block;
 
     &.is-active {
-      opacity: 0.6;
     }
   }
 
   &__toggle {
-    display: none;
+    all: unset;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+
+    &::before,
+    &::after {
+      transition: all 0.3s;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $color-default-black;
+
+      .is-open & {
+        background-color: $color-default-white;
+      }
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    @include hover {
+      &::before {
+        left: -5px;
+      }
+      &::after {
+        right: -5px;
+      }
+    }
+
+    .is-open & {
+      width: 30px;
+      height: 30px;
+
+      &::before {
+        transform: rotate(45deg);
+        top: 13px;
+      }
+      &::after {
+        bottom: 14px;
+        transform: rotate(-45deg);
+      }
+
+      @include hover {
+        &::before {
+          left: 0;
+          transform: rotate(40deg);
+        }
+        &::after {
+          right: 0;
+          transform: rotate(-40deg);
+        }
+      }
+    }
   }
 }

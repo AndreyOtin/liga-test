@@ -1,0 +1,13 @@
+.intro {
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    video {
+      filter: blur(8px) contrast(1) sepia(1) grayscale(1) brightness(0.7);
+      opacity: 0.4;
+    }
+  }
+}

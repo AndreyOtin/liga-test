@@ -3,16 +3,22 @@ import {initModals} from './modules/modals/init-modals';
 import {Form} from './modules/form-validate/form';
 import {CustomSelect} from './modules/select/custom-select';
 import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
+import {Preloader} from './utils/preloader.js';
+import {Burger} from './utils/burger.js';
+
 
 // ---------------------------------
-
 window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
+  const preloader = new Preloader();
+  const burger = new Burger();
 
+
+  preloader.init();
+  burger.init();
   mobileVhFix();
-
   // Modules
   // ---------------------------------
 
