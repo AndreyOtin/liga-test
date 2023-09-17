@@ -76,6 +76,7 @@ export class Preloader {
 
   _on() {
     this._scrollLock.disableScrolling();
+    this._container.classList.remove('is-hidden');
 
     if (this._container) {
       this._setAnimation();
@@ -93,6 +94,7 @@ export class Preloader {
     this._scrollLock.enableScrolling();
     window.dispatchEvent(this.event);
     this._pageLoaded = true;
+    this._container.classList.add('is-hidden');
   }
 
   init() {
