@@ -5,7 +5,7 @@ import {CustomSelect} from './modules/select/custom-select';
 import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
 import {Preloader} from './utils/preloader.js';
 import {Burger} from './utils/burger.js';
-
+import {initIntroAnimation} from './modules/intro-animation.js';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -14,11 +14,13 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
   const preloader = new Preloader();
   const burger = new Burger();
+  document.body.classList.add('is-loading');
 
 
   preloader.init();
   burger.init();
   mobileVhFix();
+
   // Modules
   // ---------------------------------
 
@@ -34,6 +36,12 @@ window.addEventListener('DOMContentLoaded', () => {
     window.form = form;
     form.init();
   });
+});
+
+
+window.addEventListener('loaderOff', ()=>{
+  document.body.classList.remove('is-loading');
+  initIntroAnimation();
 });
 
 // ---------------------------------

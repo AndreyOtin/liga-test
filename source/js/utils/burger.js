@@ -46,12 +46,19 @@ export class Burger {
   }
 
   _closeMenu() {
+    const time = Date.now();
     gsap.timeline()
         .to(this._elementsToAnimate, {y: '-110%', duration: 0.3})
-        .to('.main-nav', {y: '-100%', duration: 0.3, ease: 'none'})
+        .to('.main-nav', {y: '-100%', duration: 0.3, ease: 'none',
+          onUpdate: () => {
+            const current = Date.now() - time > 550;
+            if (current) {
+              this._header.classList.remove('is-open');
+            }
+
+          }})
         .then(() => {
           this._isMenuOpen = false;
-          this._header.classList.remove('is-open');
           this._scrollLock.enableScrolling();
           this._focusLock.unlock('[data-header]');
           document.removeEventListener('keydown', this._onDocumentKeydown);

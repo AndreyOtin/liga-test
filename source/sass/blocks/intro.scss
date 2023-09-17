@@ -1,4 +1,95 @@
 .intro {
+  .word {
+    position: relative;
+
+    display: inline-block;
+    overflow: hidden;
+
+    color: transparent;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      color: #000000;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    width: 300px;
+    margin-left: 100px;
+
+    font-size: 50px;
+    line-height: normal;
+
+    .is-loading & {
+      display: none;
+    }
+  }
+
+  &__text {
+    margin-right: 100px;
+
+    text-align: right;
+
+    .is-loading & {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1055px;
+    margin: 0;
+    margin: 0 -10px;
+    padding: 0;
+
+    list-style: none;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: normal;
+
+    row-gap: 20px;
+
+    .is-loading & {
+      display: none;
+    }
+  }
+
+  &__item {
+    flex: 0 1 33.333%;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    min-height: 115px;
+    padding: 10px;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -6,8 +97,8 @@
     z-index: -1;
 
     video {
-      filter: blur(8px) contrast(1) sepia(1) grayscale(1) brightness(0.7);
       opacity: 0.4;
+      filter: blur(8px) contrast(1) sepia(1) grayscale(1) brightness(0.7);
     }
   }
 }
