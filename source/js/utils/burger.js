@@ -26,6 +26,10 @@ export class Burger {
   }
 
   _openMenu() {
+    if (!this._header) {
+      return;
+    }
+
     this._isMenuOpen = true;
     this._header.classList.add('is-open');
     this._scrollLock.disableScrolling();
@@ -46,12 +50,18 @@ export class Burger {
   }
 
   _closeMenu() {
+    if (!this._header) {
+      return;
+    }
+
     const time = Date.now();
+
     gsap.timeline()
         .to(this._elementsToAnimate, {y: '-110%', duration: 0.3})
         .to('.main-nav', {y: '-100%', duration: 0.3, ease: 'none',
           onUpdate: () => {
             const current = Date.now() - time > 550;
+
             if (current) {
               this._header.classList.remove('is-open');
             }

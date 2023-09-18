@@ -1,0 +1,37 @@
+.slider {
+  min-height: 100vh;
+  background-color: #fff;
+  position: relative;
+  text-align: center;
+
+  &__sticky {
+    position: sticky;
+    inset: 0;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    background: linear-gradient(
+      90deg,
+      #a8a9c2,
+      #b1a6a5
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+}

@@ -71,3 +71,9 @@
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
+
+
+.content-box {
+  margin: 0 auto;
+  max-width: 70%;
+}

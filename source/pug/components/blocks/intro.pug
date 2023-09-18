@@ -1,10 +1,31 @@
 mixin intro()
-  section.intro
-    .container
-      p(style="margin-top: 40px;") Текст&nbsp;с&nbsp;мнемониками
+  -
+    const menu = [
+      { href: '#menu', title: 'Меню'},
+      { href: '#loader', title: 'Loader'},
+      { href: '#bundling',  title: 'Сборка'},
+      { href: '#apperance',  title: 'Появление блоков'},
+      { href: '#parallax', title: 'Паралакс'},
+      { href: '#slider', title: 'Слайдер'},
+    ]
 
-      p(style="margin-top: 40px;") Пример использования +img()
-      p(style="margin-bottom: 40px;")
-        +img("content", "placeholder", "png", 120, 120, "Пример")
-    .intro__bg
-      video(src="img/video/background-wave.mp4", autoplay='true', loop)
+  section.intro
+    .intro__sticky
+      .container
+        header.intro__header
+          h2.intro__title Задачи на прокачку
+          p.intro__text
+            | Задачи на интерфейсную логику,
+            br
+            | которые часто встречаются
+            br
+            | на реальных проектах
+        .intro__content
+          ul.intro__list
+            each item, index in menu
+              - const isOffset = index === 0 || index === menu.length - 1;
+
+              li.intro__item
+                a.intro__link(href=item.href, data-move-to=item.href, data-offset=`${isOffset ? 0 : '.header'}`)= item.title
+      .intro__bg
+        video(src="img/video/background-wave.mp4" autoplay='true', loop)

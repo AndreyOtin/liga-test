@@ -1,0 +1,31 @@
+-
+  const text = [
+    {
+      title: 'Scroll Slider',
+      text: 'переключение полноэкранных слайдов по скроллу'
+    },
+      {
+      title: 'position: sticky;',
+      text: 'Просто стики. Не нужно мучаться с position: fixed; или pin: true, <br/> (т.к. баги на тач неисправимы)'
+    },
+      {
+      title: 'gsap scrollTrigger',
+      text: 'без getBoundingClientRect, <br/>  ScrollTrigger делает всю рутину за нас'
+    },
+      {
+      title: 'ios friendly???',
+      text: 'не забывайте добавлять вокруг transform: translate3d(0, 0, 0);'
+    }
+  ]
+
+mixin slider()
+  section.slider(id='slider')
+    .slider__sticky
+      each item, index in text
+        - const className = index === 0 ? 'is-active': '';
+
+        .slider__slide(class=className)
+          .container
+            .content-box
+              h2= item.title
+              p!= item.text

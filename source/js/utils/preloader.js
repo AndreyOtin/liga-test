@@ -32,7 +32,7 @@ export class Preloader {
             PreloaderSelector.Box,
             {
               scale: 1.5,
-              duration: 1,
+              duration: 0.5,
               ease: 'power1.inOut',
             },
             'start'
@@ -42,7 +42,7 @@ export class Preloader {
             PreloaderSelector.Box,
             {
               scale: 1,
-              duration: 1,
+              duration: 0.5,
               ease: 'power1.inOut',
             },
             'scaled'
@@ -65,6 +65,10 @@ export class Preloader {
     }
 
     this._timeLine.pause();
+
+    this._scrollLock.enableScrolling();
+    window.scroll({top: 0});
+
     gsap
         .to(PreloaderSelector.Container, {
           y: '-100%',
@@ -91,14 +95,12 @@ export class Preloader {
   }
 
   _off() {
-    this._scrollLock.enableScrolling();
     window.dispatchEvent(this.event);
     this._pageLoaded = true;
     this._container.classList.add('is-hidden');
   }
 
   init() {
-    window.scrollTo(0, 0);
     this._on();
   }
 }

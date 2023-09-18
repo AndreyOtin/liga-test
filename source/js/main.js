@@ -6,20 +6,23 @@ import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
 import {Preloader} from './utils/preloader.js';
 import {Burger} from './utils/burger.js';
 import {initIntroAnimation} from './modules/intro-animation.js';
+import {initScrollTo} from './utils/scroll-to.js';
+import {initApearanceAnimation} from './modules/appearance-animation.js';
+import {initParallaxAnimation} from './modules/parallax-animation.js';
+import {initSlider} from './modules/slider.js';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
+  document.body.classList.add('is-loading');
   const preloader = new Preloader();
   const burger = new Burger();
-  document.body.classList.add('is-loading');
-
-
   preloader.init();
   burger.init();
   mobileVhFix();
+
 
   // Modules
   // ---------------------------------
@@ -39,9 +42,13 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-window.addEventListener('loaderOff', ()=>{
+window.addEventListener('loaderOff', () => {
   document.body.classList.remove('is-loading');
   initIntroAnimation();
+  initApearanceAnimation();
+  initParallaxAnimation();
+  initScrollTo();
+  initSlider();
 });
 
 // ---------------------------------

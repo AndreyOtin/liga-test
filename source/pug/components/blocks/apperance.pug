@@ -1,0 +1,20 @@
+mixin apperance()
+  section.apperance(id='apperance')
+    .container
+      .content-box
+        h2 Появление блоков
+        p доскролили и вжух!
+        p Можно делать через классы и высчитывать по скроллу getBoundingClientRect каждого блока, но гораздо проще использовать ScrollTrigger.batch()
+        ul.apperance__list
+          li.apperance__item(data-animation='fade')
+            span fade
+          li.apperance__item(data-animation='fade')
+            span  fade
+          li.apperance__item(data-animation='fade-in')
+            span  fade-in
+          li.apperance__item(data-animation='fade-in')
+            span  fade-in
+          li.apperance__item(data-animation='scale')
+            span  fade-scale
+          li.apperance__item(data-animation='scale')
+            span  fade-scale

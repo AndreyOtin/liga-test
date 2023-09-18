@@ -48,6 +48,10 @@
     cursor: pointer;
     position: relative;
 
+    .is-open & {
+      margin-right: 15px;
+    }
+
     &::before,
     &::after {
       transition: all 0.3s;
