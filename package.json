@@ -66,6 +66,6 @@
     "stylelint-config-htmlacademy": "1.1.4"
   },
   "engines": {
-    "node": ">=16.15.1"
+    "node": "v16.20.2"
   }
 }
